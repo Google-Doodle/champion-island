@@ -1,7 +1,7 @@
 {
   "name": "Google Doodle Champion Island",
   "short_name": "Champion Island",
-  "display": "browser",
+  "display": "standalone",
   "scope": "/champion-island-full",
   "start_url": "/champion-island-full",
   "icons": [
