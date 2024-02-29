@@ -8,6 +8,16 @@
   <link rel="shortcut icon" href="favicon.svg" />
   <link rel="manifest" href="manifest.json" />
   <script src="theme.js"></script>
+  <script>
+    // Eruda, for debug
+    (function () {
+      var src = '//cdn.jsdelivr.net/npm/eruda';
+      if (!/debug=true/.test(window.location))
+        return;
+      document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+      document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
+})();
+  </script>
   <!--My stuff ends-->
 </head>
 <body style="text-align:center">
