@@ -1,4 +1,7 @@
 let theme=new URL(window.location).searchParams.get("theme");
+if (theme === null) {
+  theme="auto"
+}
 if(theme==="dark"){
   document.body.style.backgroundColor="#000000";
 } else if(theme==="light"){
