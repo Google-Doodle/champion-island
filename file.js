@@ -1,4 +1,4 @@
-var saveFile = async (blob = (new Blob([''], {type: "text/plain"})), suggestedName = "file") => {
+var save_file = async (blob = (new Blob([''], {type: "text/plain"})), suggestedName = "file") => {
   // If file system API is available and not in iframe.
   const FSApiAvalible = !!window.showSaveFilePicker && window.self === window.top
   // If the file system API is supported
@@ -34,7 +34,7 @@ var saveFile = async (blob = (new Blob([''], {type: "text/plain"})), suggestedNa
   }, 1000);
 }
 
-var loadFile = function loadFile(onchange) {
+var load_file = function loadFile(onchange) {
   if (typeof onchange !== "function") {onchange=function(){}}
   const input = document.createElement('input')
   input.type = 'file'
