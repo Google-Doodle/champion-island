@@ -6,7 +6,7 @@ var load_ksav = function load_ksav(save) {
     save = atob(save) // Decrypt base64
     save = JSON.parse(save) // Parse JSON
     Object.keys(save).forEach(function (key) {
-      localStorage.setItem(key, JSON.stringify(save[key]))
+      localStorage.setItem(key, save[key])
     }) // Save to localStorage
   }
   if (typeof save==="object") {
