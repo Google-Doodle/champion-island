@@ -24,7 +24,7 @@ document.addEventListener('keydown', function(ev) {
     if (ev.keyCode === 79) {
       // CTRL+O is pressed (keyCode 79 corresponds to 'O')
       ev.preventDefault(); // Prevent default browser behavior
-      load_ksav(open_file())
+      open_file(load_ksav)
     } else if (ev.keyCode === 83) {
       // CTRL+S is pressed (keyCode 83 corresponds to 'S')
       ev.preventDefault(); // Prevent default browser behavior

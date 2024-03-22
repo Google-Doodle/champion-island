@@ -14,7 +14,7 @@ var save_file = async (blob = (new Blob([''], {type: "text/plain"})), suggestedN
       return;
     } catch (err) {
       if (err.name !== "AbortError") {
-        console.error(error.name, error.message);
+        console.error(err.name, err.message);
         return;
       }
       return;
