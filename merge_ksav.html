@@ -12,7 +12,6 @@
         var src = '//cdn.jsdelivr.net/npm/eruda';
         if (!/debug=true/.test(window.location))
           return;
-        document.querySelector("link[rel=manifest]").href="debug.webmanifest";
         document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
         document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
       })();
