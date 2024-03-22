@@ -2,11 +2,18 @@ add_script("file.js")
 
 // This is a potential feature
 var load_ksav = function load_ksav(save) {
-  save = atob(save) // Decrypt base64
-  save = JSON.parse(save) // Parse JSON
-  Object.keys(save).forEach(function (key) {
-    localStorage.setItem(key, JSON.stringify(save[key]))
-  }) // Save to localStorage
+  _load_ksav=function(save){
+    save = atob(save) // Decrypt base64
+    save = JSON.parse(save) // Parse JSON
+    Object.keys(save).forEach(function (key) {
+      localStorage.setItem(key, JSON.stringify(save[key]))
+    }) // Save to localStorage
+  }
+  if (typeof save==="object") {
+    save.files[0].text().then(t=>_load_ksav(t))
+    return;
+  }
+  _load_ksav(save)
 }
 
 var save_ksav = function save_ksav(storage=localStorage) {
