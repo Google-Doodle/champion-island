@@ -1,4 +1,4 @@
-var add_script = function addScript(src="", if_not_already_exists=true) {
+var add_script = function add_script(src="", if_not_already_exists=true) {
   if (!!if_not_already_exists) {
     // if_not_already_exsists should be a css selector
     if (if_not_already_exists===true) {
@@ -17,4 +17,8 @@ var add_script = function addScript(src="", if_not_already_exists=true) {
   document.head.append(script);
   // return object in case user wants to modify
   return script;
+}
+
+var add_script_iter = function add_script_iter(...scripts) {
+  scripts.forEach(script => add_script(...script))
 }
