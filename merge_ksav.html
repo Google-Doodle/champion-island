@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- This is an experimental feature. -->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+    <script src="file.js"></script>
+    <script async>
+      load_script_iter(["ksav.js"], ["file.js"])
+      document.onload=()=>{
+        var files = document.getElementById("files");
+        let ksav = {};
+        files.addEventListener("change", async function(ev){
+          Array.prototype.forEach.call(files, async function(file){
+            _load_ksav(await file.text(), ksav)
+          });
+          save_file(save_ksav(ksav))
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <label for="files">Choose your files</label>
+    <input type="file" id="files" multiple hidden>
+  </body>
+</html>
