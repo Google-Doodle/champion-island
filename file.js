@@ -12,7 +12,7 @@ var save_file = async (blob = (new Blob([''], {type: "text/plain"})), suggestedN
       await writable.write(blob);
       await writable.close();
       return;
-    } catch (error) {
+    } catch (err) {
       if (err.name !== "AbortError") {
         console.error(error.name, error.message);
         return;
@@ -34,7 +34,7 @@ var save_file = async (blob = (new Blob([''], {type: "text/plain"})), suggestedN
   }, 1000);
 }
 
-var load_file = function loadFile(onchange) {
+var open_file = function loadFile(onchange) {
   if (typeof onchange !== "function") {onchange=function(){}}
   const input = document.createElement('input')
   input.type = 'file'
