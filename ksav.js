@@ -1,11 +1,14 @@
 add_script("file.js")
 
-var _load_ksav=function(save, out=localStorage){
+var _load_ksav=function(save="e30=", out=localStorage){
+  console.log(out)
   save = atob(save) // Decrypt base64
   save = JSON.parse(save) // Parse JSON
   Object.keys(save).forEach(function (key) {
     out[key] = save[key]
   })
+  // some objects don't sync
+  return out;
 }
 
 // This is a potential feature
