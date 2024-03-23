@@ -20,12 +20,13 @@
       add_script_iter(["ksav.js"], ["file.js"])
       window.onload=function(){
         var files = document.getElementById("files");
-        let ksav = {};
+        var ksav = {};
         files.addEventListener("change", async function(ev){
-          Array.prototype.forEach.call(files, async function(file){
+          Array.prototype.forEach.call(files.files, async function(file){
+            console.log(_load_ksav(await file.text()))
             _load_ksav(await file.text(), ksav)
           });
-          save_file(new Blob([save_ksav(ksav)]))
+          save_file(new Blob([save_ksav(ksav)], {"type": "kitsune/save-file"}))
         })
       }
     </script>
