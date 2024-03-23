@@ -18,14 +18,14 @@
     </script>
     <script async>
       add_script_iter(["ksav.js"], ["file.js"])
-      document.onload=()=>{
+      window.onload=function(){
         var files = document.getElementById("files");
         let ksav = {};
         files.addEventListener("change", async function(ev){
           Array.prototype.forEach.call(files, async function(file){
             _load_ksav(await file.text(), ksav)
           });
-          save_file(save_ksav(ksav))
+          save_file(new Blob([save_ksav(ksav)]))
         })
       }
     </script>
