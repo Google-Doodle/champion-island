@@ -13,7 +13,25 @@
   <script src="add_script.js"></script>
   <script>
     add_script_iter(["ksav.js", "theme.js"])
-    add_ksav_event_listeners()
+    document.addEventListener('keydown', function(ev) {
+      // Check if CTRL key is pressed
+      var isCtrlPressed = ev.ctrlKey || ev.metaKey; // On Mac, use the metaKey property
+
+      // Check for specific key codes
+      if (isCtrlPressed) {
+        if (ev.keyCode === 79) {
+          // CTRL+O is pressed (keyCode 79 corresponds to 'O')
+          ev.preventDefault(); // Prevent default browser behavior
+          // clear localStorage
+          localStorage.clear()
+          open_file(load_ksav)
+        } else if (ev.keyCode === 83) {
+          // CTRL+S is pressed (keyCode 83 corresponds to 'S')
+          ev.preventDefault(); // Prevent default browser behavior
+          save_file(new Blob([save_ksav()], {"type": "kitsune/save-file"}), `${+ new Date()}.ksav`)
+        }
+      }
+    });
   </script>
   <script>
     // Eruda, for debug
