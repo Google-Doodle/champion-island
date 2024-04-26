@@ -3,8 +3,8 @@
   "short_name": "Champion Island Debug",
   "display": "standalone",
   "display_override": ["window-controls-overlay"],
-  "scope": "/champion-island-full",
-  "start_url": "/champion-island-full?debug=true",
+  "scope": "/champion-island",
+  "start_url": "/champion-island?debug=true",
   "icons": [
     {
       "src": "icons/icon-72x72.png",
